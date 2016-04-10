@@ -21,7 +21,7 @@ public class Main {
 			}
 		}
 
-		taskB1(numbers);
+		taskB2(numbers);
 	}
 
 	public static void taskA1() {
@@ -112,6 +112,7 @@ public class Main {
 	}
 
 	public static void taskB1(int[] numbers) {
+		System.out.println("----- TASK B1 -----");
 		System.out.println("Even numbers:");
 		for (int number : numbers) {
 			if (number % 2 == 0) {
@@ -125,5 +126,26 @@ public class Main {
 			}
 		}
 		System.out.println();
+	}
+
+	public static void taskB2(int[] numbers) {
+		System.out.println("----- TASK B2 -----");
+		if (numbers.length == 0) {
+			return;
+		}
+
+		int min = numbers[0];
+		int max = numbers[0];
+
+		for (int num : numbers) {
+			if (num < min) {
+				min = num;
+			} else if (num > max) {
+				max = num;
+			}
+		}
+
+		System.out.println("Max number: " + max);
+		System.out.println("Min number: " + min);
 	}
 }
