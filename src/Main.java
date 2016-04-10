@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Main {
 	public static void main(String[] args) {
-		taskA4();
+		taskA5(args);
 	}
 
 	public static void taskA1() {
@@ -61,5 +61,21 @@ public class Main {
 			}
 		}
 		System.out.println("You didn't guess the number. Perhaps you will be lucky next time.");
+	}
+
+	public static void taskA5(String[] args) {
+		System.out.println("----- TASK 5 -----");
+		double sum = 0;
+		double product = 1;
+		double currentNumber;
+
+		for (String arg : args) {
+			currentNumber = Double.parseDouble(arg.replaceAll(",", "."));
+			sum += currentNumber;
+			product *= currentNumber;
+		}
+
+		System.out.println("Sum = " + sum);
+		System.out.println("Product = " + product);
 	}
 }
