@@ -8,11 +8,12 @@ import java.util.InputMismatchException;
 public class Main {
 	public static void main(String[] args) {
 		int[] numbers = {-746, 16, 31, 891, 53,
-				20, 0, -346, -12, 45}; // getNumbersFromConsole();
+				20, 0, -346, -12, 35}; // getNumbersFromConsole();
 
 		taskB1(numbers);
 		taskB2(numbers);
 		taskB3(numbers);
+		taskB4(numbers);
 	}
 
 	public static int[] getNumbersFromConsole() {
@@ -169,6 +170,16 @@ public class Main {
 				System.out.print(num + " ");
 			}
 		}
-		System.out.println();
+		System.out.println("are multiples of 3 or 9");
+	}
+
+	public static void taskB4(int[] numbers) {
+		System.out.println("----- TASK B4 -----");
+		for (int num : numbers) {
+			if (num % 5 == 0 && num % 7 == 0) {
+				System.out.print(num + " ");
+			}
+		}
+		System.out.println("are multiples of 5 and 7");
 	}
 }
