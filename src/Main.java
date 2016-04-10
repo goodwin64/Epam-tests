@@ -6,8 +6,8 @@ public class Main {
 	public static void main(String[] args) {
 		int[] numbers = {
 				-746, 16, 31, 891, 53,
-				20, 0, -346, -12, 35,
-				111, 451, -22, -95, 224
+				224, 0, -22, -22, 35,
+				111, 451, -22, -95, 224,
 		}; // Numbers.getNumbersFromConsole();
 
 		taskB1(numbers);
@@ -18,6 +18,7 @@ public class Main {
 		taskB7(numbers);
 		taskB8(numbers);
 		taskB9(numbers);
+		taskB10(numbers);
 	}
 
 	public static void taskA1() {
@@ -223,5 +224,30 @@ public class Main {
 		System.out.println("In descending order: ");
 		Arrays.sort(objNumbers, Collections.reverseOrder());
 		System.out.println(Arrays.toString(objNumbers));
+	}
+
+	public static void taskB10(int[] numbers) {
+		System.out.println("----- TASK B10 -----");
+		/*
+		Integer[] objNumbers = new Integer[numbers.length];
+		for (int i = 0; i < numbers.length; i++) {
+			objNumbers[i] = new Integer(numbers[i]);
+		}
+		*/
+
+		Map numbersCounts = new LinkedHashMap<>(numbers.length);
+		for (int num : numbers) {
+			Integer currentNumber = new Integer(num);
+
+			numbersCounts.computeIfPresent(currentNumber,
+					(k, v) -> (int) v + 1);
+
+			numbersCounts.computeIfAbsent(currentNumber,
+					k -> 1);
+
+		}
+
+		System.out.println("In descending order by frequency: ");
+		System.out.println(Numbers.sortByValue(numbersCounts));
 	}
 }
