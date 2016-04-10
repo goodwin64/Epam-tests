@@ -1,6 +1,4 @@
-import java.util.Scanner;
-import java.util.Random;
-import java.util.Date;
+import java.util.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -19,6 +17,7 @@ public class Main {
 		taskB6(numbers);
 		taskB7(numbers);
 		taskB8(numbers);
+		taskB9(numbers);
 	}
 
 	public static void taskA1() {
@@ -207,5 +206,22 @@ public class Main {
 			}
 		}
 		System.out.println();
+	}
+
+	public static void taskB9(int[] numbers) {
+		System.out.println("----- TASK B9 -----");
+
+		Integer[] objNumbers = new Integer[numbers.length];
+		for (int i = 0; i < numbers.length; i++) {
+			objNumbers[i] = new Integer(numbers[i]);
+		}
+
+		System.out.println("In ascending order: ");
+		Arrays.sort(objNumbers);
+		System.out.println(Arrays.toString(objNumbers));
+
+		System.out.println("In descending order: ");
+		Arrays.sort(objNumbers, Collections.reverseOrder());
+		System.out.println(Arrays.toString(objNumbers));
 	}
 }
