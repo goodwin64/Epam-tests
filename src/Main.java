@@ -228,12 +228,6 @@ public class Main {
 
 	public static void taskB10(int[] numbers) {
 		System.out.println("----- TASK B10 -----");
-		/*
-		Integer[] objNumbers = new Integer[numbers.length];
-		for (int i = 0; i < numbers.length; i++) {
-			objNumbers[i] = new Integer(numbers[i]);
-		}
-		*/
 
 		Map numbersCounts = new LinkedHashMap<>(numbers.length);
 		for (int num : numbers) {
