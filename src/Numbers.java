@@ -5,6 +5,14 @@ import java.util.Scanner;
  * Created by Max Donchenko (https://github.com/goodwin64) on 10.04.2016.
  */
 public class Numbers {
+    public static void main(String[] args) {
+        System.out.println(isPrime(4));
+        System.out.println(isPrime(5));
+        System.out.println(isPrime(6));
+        System.out.println(isPrime(7));
+        System.out.println(isPrime(20));
+    }
+
     public static int[] getNumbersFromConsole() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("How many numbers? ");
@@ -52,5 +60,18 @@ public class Numbers {
             result = lcm(result, input[i]);
         }
         return result;
+    }
+
+
+    public static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        for (int i = 2; i <= (int) Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

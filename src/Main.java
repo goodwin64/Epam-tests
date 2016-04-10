@@ -18,6 +18,7 @@ public class Main {
 		taskB4(numbers);
 		taskB6(numbers);
 		taskB7(numbers);
+		taskB8(numbers);
 	}
 
 	public static void taskA1() {
@@ -195,5 +196,16 @@ public class Main {
 		System.out.println("----- TASK B7 -----");
 		System.out.println("GCD: " + Numbers.gcd(numbers));
 		System.out.println("LCM: " + Numbers.lcm(numbers));
+	}
+
+	public static void taskB8(int[] numbers) {
+		System.out.println("----- TASK B8 -----");
+		System.out.println("Primes: ");
+		for (int num : numbers) {
+			if (Numbers.isPrime(num)) {
+				System.out.print(num + " ");
+			}
+		}
+		System.out.println();
 	}
 }
