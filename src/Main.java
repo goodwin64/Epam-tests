@@ -1,9 +1,12 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 public class Main {
 	public static void main(String[] args) {
-		taskA5(args);
+		taskA6();
 	}
 
 	public static void taskA1() {
@@ -77,5 +80,19 @@ public class Main {
 
 		System.out.println("Sum = " + sum);
 		System.out.println("Product = " + product);
+	}
+
+	public static void taskA6() {
+		System.out.println("----- TASK 6 -----");
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter your surname: ");
+		String devSurname = scan.next();
+
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		String currentDateTime = dateFormat.format(date);
+
+		System.out.printf("Developer surname:\t%s\nTest passed:\t\t%s",
+			devSurname, currentDateTime);
 	}
 }
