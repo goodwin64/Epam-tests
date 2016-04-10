@@ -3,7 +3,6 @@ import java.util.Random;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.InputMismatchException;
 
 public class Main {
 	public static void main(String[] args) {
@@ -11,7 +10,7 @@ public class Main {
 				-746, 16, 31, 891, 53,
 				20, 0, -346, -12, 35,
 				111, 451, -22, -95, 224
-		}; // getNumbersFromConsole();
+		}; // Numbers.getNumbersFromConsole();
 
 		taskB1(numbers);
 		taskB2(numbers);
@@ -19,55 +18,6 @@ public class Main {
 		taskB4(numbers);
 		taskB6(numbers);
 		taskB7(numbers);
-	}
-
-	public static int[] getNumbersFromConsole() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.print("How many numbers? ");
-		int numbersCount = scanner.nextInt();
-		int[] numbers = new int[numbersCount];
-
-		for (int i = 0; i < numbersCount; i++) {
-			System.out.printf("%d) ", i+1);
-			try {
-				numbers[i] = scanner.nextInt();
-			} catch (InputMismatchException e) {
-				e.printStackTrace();
-			}
-		}
-
-		return numbers;
-	}
-
-	private static int gcd(int a, int b)	{
-		a = Math.abs(a);
-		b = Math.abs(b);
-		while (b > 0) {
-			int temp = b;
-			b = a % b;
-			a = temp;
-		}
-		return a;
-	}
-
-	private static int gcd(int[] input) {
-		int result = input[0];
-		for (int i = 1; i < input.length; i++) {
-			result = gcd(result, input[i]);
-		}
-		return result;
-	}
-
-	private static int lcm(int a, int b) {
-		return a * (b / gcd(a, b));
-	}
-
-	private static long lcm(int[] input) {
-		int result = input[0];
-		for (int i = 1; i < input.length; i++) {
-			result = lcm(result, input[i]);
-		}
-		return result;
 	}
 
 	public static void taskA1() {
@@ -243,7 +193,7 @@ public class Main {
 
 	public static void taskB7(int[] numbers) {
 		System.out.println("----- TASK B7 -----");
-		System.out.println("GCD: " + gcd(numbers));
-		System.out.println("LCM: " + lcm(numbers));
+		System.out.println("GCD: " + Numbers.gcd(numbers));
+		System.out.println("LCM: " + Numbers.lcm(numbers));
 	}
 }
