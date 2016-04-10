@@ -3,10 +3,25 @@ import java.util.Random;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.InputMismatchException;
 
 public class Main {
 	public static void main(String[] args) {
-		taskA6();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("How many numbers? ");
+		int numbersCount = scanner.nextInt();
+		int[] numbers = new int[numbersCount];
+
+		for (int i = 0; i < numbersCount; i++) {
+			System.out.printf("%d) ", i+1);
+			try {
+				numbers[i] = scanner.nextInt();
+			} catch (InputMismatchException e) {
+				e.printStackTrace();
+			}
+		}
+
+		taskB1(numbers);
 	}
 
 	public static void taskA1() {
@@ -94,5 +109,21 @@ public class Main {
 
 		System.out.printf("Developer surname:\t%s\nTest passed:\t\t%s",
 			devSurname, currentDateTime);
+	}
+
+	public static void taskB1(int[] numbers) {
+		System.out.println("Even numbers:");
+		for (int number : numbers) {
+			if (number % 2 == 0) {
+				System.out.print(number + " ");
+			}
+		}
+		System.out.println("\nOdd numbers:");
+		for (int number : numbers) {
+			if (Math.abs(number) % 2 == 1) {
+				System.out.print(number + " ");
+			}
+		}
+		System.out.println();
 	}
 }
