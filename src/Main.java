@@ -18,6 +18,7 @@ public class Main {
 		taskB3(numbers);
 		taskB4(numbers);
 		taskB6(numbers);
+		taskB7(numbers);
 	}
 
 	public static int[] getNumbersFromConsole() {
@@ -36,6 +37,37 @@ public class Main {
 		}
 
 		return numbers;
+	}
+
+	private static int gcd(int a, int b)	{
+		a = Math.abs(a);
+		b = Math.abs(b);
+		while (b > 0) {
+			int temp = b;
+			b = a % b;
+			a = temp;
+		}
+		return a;
+	}
+
+	private static int gcd(int[] input) {
+		int result = input[0];
+		for (int i = 1; i < input.length; i++) {
+			result = gcd(result, input[i]);
+		}
+		return result;
+	}
+
+	private static int lcm(int a, int b) {
+		return a * (b / gcd(a, b));
+	}
+
+	private static long lcm(int[] input) {
+		int result = input[0];
+		for (int i = 1; i < input.length; i++) {
+			result = lcm(result, input[i]);
+		}
+		return result;
 	}
 
 	public static void taskA1() {
@@ -207,5 +239,11 @@ public class Main {
 			}
 		}
 		System.out.println("contain only unique digits.");
+	}
+
+	public static void taskB7(int[] numbers) {
+		System.out.println("----- TASK B7 -----");
+		System.out.println("GCD: " + gcd(numbers));
+		System.out.println("LCM: " + lcm(numbers));
 	}
 }
