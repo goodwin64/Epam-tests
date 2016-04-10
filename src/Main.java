@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Main {
 	public static void main(String[] args) {
-		taskA3();
+		taskA4();
 	}
 
 	public static void taskA1() {
@@ -41,5 +41,25 @@ public class Main {
 			System.out.print(random.nextInt() + " ");
 		}
 		System.out.println();
+	}
+
+	public static void taskA4() {
+		System.out.println("----- TASK 4 -----");
+		int attempts = 3;
+		int currentNumber;
+		Scanner scan = new Scanner(System.in);
+		Password pass = new Password();
+
+		System.out.printf("You have %d attempts. Guess 1-digit password (0..9):\n", attempts);
+		for (int i = 1; i <= attempts; i++) {
+			System.out.printf("Enter number %d: ", i);
+			currentNumber = scan.nextInt();
+			if (pass.guess(currentNumber)) {
+				System.out.println("You guessed the number. Congratulations!");
+				System.out.printf("The number was %d.\n", currentNumber);
+				return;
+			}
+		}
+		System.out.println("You didn't guess the number. Perhaps you will be lucky next time.");
 	}
 }
