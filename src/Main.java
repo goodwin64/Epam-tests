@@ -7,10 +7,12 @@ import java.util.InputMismatchException;
 
 public class Main {
 	public static void main(String[] args) {
-		int[] numbers = {-746, 16, 31, 891, 53, 20, 0, -346}; // getNumbersFromConsole();
+		int[] numbers = {-746, 16, 31, 891, 53,
+				20, 0, -346, -12, 45}; // getNumbersFromConsole();
 
 		taskB1(numbers);
 		taskB2(numbers);
+		taskB3(numbers);
 	}
 
 	public static int[] getNumbersFromConsole() {
@@ -154,5 +156,19 @@ public class Main {
 
 		System.out.println("Max number: " + max);
 		System.out.println("Min number: " + min);
+	}
+
+	public static void taskB3(int[] numbers) {
+		System.out.println("----- TASK B3 -----");
+		for (int num : numbers) {
+			if (num % 3 == 0 || num % 9 == 0) {
+				/*
+				* Probably there is a typo in the book.
+				* Because all the numbers that are multiples of 3, are multiples of 9.
+				*/
+				System.out.print(num + " ");
+			}
+		}
+		System.out.println();
 	}
 }
