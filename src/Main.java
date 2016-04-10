@@ -7,6 +7,13 @@ import java.util.InputMismatchException;
 
 public class Main {
 	public static void main(String[] args) {
+		int[] numbers = {-746, 16, 31, 891, 53, 20, 0, -346}; // getNumbersFromConsole();
+
+		taskB1(numbers);
+		taskB2(numbers);
+	}
+
+	public static int[] getNumbersFromConsole() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("How many numbers? ");
 		int numbersCount = scanner.nextInt();
@@ -21,7 +28,7 @@ public class Main {
 			}
 		}
 
-		taskB2(numbers);
+		return numbers;
 	}
 
 	public static void taskA1() {
